@@ -17,17 +17,16 @@ public class QuestionDisplay : MonoBehaviour
     public static string newC;
     public static string newD;
 
+    public static bool updateNow = false;
 
-   
-
-   void Start()
-    {
-        StartCoroutine(PutTextOnScreen());
-    }
 
     void Update()
     {
-
+        if (!updateNow)
+        {
+            updateNow = true;
+            StartCoroutine(PutTextOnScreen());
+        }
     }
 
 
