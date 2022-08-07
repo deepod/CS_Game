@@ -11,15 +11,33 @@ public class QuestionDisplay : MonoBehaviour
     public TMP_Text answerB;
     public TMP_Text answerC;
     public TMP_Text answerD;
+    public static string aQuestion;
+    public static string newA;
+    public static string newB;
+    public static string newC;
+    public static string newD;
+
 
    
-    
+
+   void Start()
+    {
+        StartCoroutine(PutTextOnScreen());
+    }
+
     void Update()
     {
-        theQuestion.text = "State where the customer data is held during the process of modifying their data.";
-        answerA.text = "Hard Disk";
-        answerB.text = "RAM";
-        answerC.text = "BIOS";
-        answerD.text = "Database";
+
+    }
+
+
+    IEnumerator PutTextOnScreen()
+    {
+        yield return new WaitForSeconds(0.25f);
+        theQuestion.text = aQuestion;
+        answerA.text = newA;
+        answerB.text = newB;
+        answerC.text = newC;
+        answerD.text = newD;
     }
 }
