@@ -447,8 +447,10 @@ MonoBehaviour:
   ansD: {fileID: 135486953}
   correctSound: {fileID: 164727975}
   wrongSound: {fileID: 452739457}
-  score: {fileID: 169982381}
+  score: {fileID: 169982383}
   scoreVal: 0
+  highScore: 0
+  highScoreDisplay: {fileID: 709997929}
 --- !u!1 &164727973
 GameObject:
   m_ObjectHideFlags: 0

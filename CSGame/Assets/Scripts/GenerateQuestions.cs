@@ -15,7 +15,7 @@ public class GenerateQuestions : MonoBehaviour
     {
         if(!displayQuestion){
             questionNum = Random.Range(1,6); //choose a number
-            displayQuestion = true;
+            displayQuestion = true; //stop continually generating questions until this changes to false again
 
             if (questionNum == 1)
             { 
@@ -24,7 +24,7 @@ public class GenerateQuestions : MonoBehaviour
                 QuestionDisplay.newB = "RAM";
                 QuestionDisplay.newC = "BIOS";
                 QuestionDisplay.newD = "Database";
-                actualAnswer = "A";
+                actualAnswer = "B";
             }
             if (questionNum == 2)
             { 
@@ -64,7 +64,7 @@ public class GenerateQuestions : MonoBehaviour
             }
             
             //questions above here
-            QuestionDisplay.updateNow = false;
+            QuestionDisplay.updateNow = false; // let QuestionDisplay know it can display a new question
             
         }
     }

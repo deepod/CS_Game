@@ -24,15 +24,15 @@ public class QuestionDisplay : MonoBehaviour
     {
         if (!updateNow)
         {
-            updateNow = true;
+            updateNow = true; //stop continually displaying questions until this changes to false again
             StartCoroutine(PutTextOnScreen());
         }
     }
 
-
     IEnumerator PutTextOnScreen()
+    //put the new questions on the screen
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.25f); //wait for the new question to be generated in GenerateQuestions script
         theQuestion.text = aQuestion;
         answerA.text = newA;
         answerB.text = newB;

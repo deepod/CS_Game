@@ -32,7 +32,15 @@ public class ButtonAnswers : MonoBehaviour
     public AudioSource wrongSound;
 
     public TMP_Text score;
-    public int scoreVal;
+    public int scoreVal; //scoreValue
+    public int highScore; //current bestScore
+    public TMP_Text highScoreDisplay; //bestDisplay
+
+    public void Start()
+    {
+        highScore = PlayerPrefs.GetInt("HighScoreQuiz"); //BestScoreQuiz
+        highScoreDisplay.text = "BEST: " + highScore;
+    }
 
     void Update()
     {
@@ -129,6 +137,12 @@ public class ButtonAnswers : MonoBehaviour
 
     IEnumerator QuestionNext()
     {
+        if (highScore < scoreVal)
+        {
+            PlayerPrefs.SetInt("HighScoreQuiz",scoreVal);
+            highScore = scoreVal;
+            highScoreDisplay.text = "BEST: " + scoreVal;
+        }
         yield return new WaitForSeconds(1); // wait for a second before the next question
 
         //turn off any green panels
@@ -157,9 +171,7 @@ public class ButtonAnswers : MonoBehaviour
         ansC.GetComponent<Button>().enabled = true;
         ansD.GetComponent<Button>().enabled = true;
 
-        //access displayQuestion in the GenerateQuestions script, change it to false
-        //so that a new questions with be generated
-        GenerateQuestions.displayQuestion = false;
+        GenerateQuestions.displayQuestion = false; //let GenerateQuestions know it can generate a new question
 
     }
 }
